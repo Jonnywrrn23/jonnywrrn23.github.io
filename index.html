@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jonathan Warren - Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Print-friendly version */
+      @media print {
+        body {
+          background: white;
+        }
+        main {
+          box-shadow: none !important;
+          padding: 0 !important;
+        }
+        header,
+        section {
+          background: white !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-900 font-sans">
+    <!-- Navbar -->
+    <nav class="bg-gray-900 text-white py-4 shadow-md sticky top-0">
+      <div class="max-w-5xl mx-auto flex justify-between items-center px-4">
+        <h1 class="text-lg font-bold">Jonathan Warren</h1>
+        <div class="space-x-4">
+          <a href="#experience" class="hover:text-yellow-400">Experience</a>
+          <a href="#skills" class="hover:text-yellow-400">Skills</a>
+          <a href="#education" class="hover:text-yellow-400">Education</a>
+          <a
+            href="mailto:Jonnywrrrn23@gmail.com"
+            class="bg-yellow-400 text-black px-3 py-1 rounded hover:bg-yellow-300"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main
+      class="max-w-5xl mx-auto my-10 p-6 sm:p-10 bg-white shadow-lg rounded-lg"
+    >
+      <!-- Header -->
+      <header class="text-center mb-10">
+        <img
+          src="profile_pic.png"
+          alt="Profile Photo"
+          class="w-32 h-32 mx-auto rounded-full shadow-md mb-4"
+        />
+        <h2 class="text-3xl font-bold">Jonathan Warren</h2>
+        <p class="text-gray-600">Software Engineer</p>
+        <p class="text-sm text-gray-500 mt-1">
+          <a
+            href="mailto:Jonnywrrrn23@gmail.com"
+            class="text-blue-600 hover:underline"
+            >Jonnywrrrn23@gmail.com</a
+          >
+        </p>
+      </header>
+
+      <!-- Languages / Technologies -->
+      <section id="skills" class="mb-10">
+        <h3 class="text-2xl font-semibold border-b-2 border-gray-200 pb-1 mb-4">
+          Languages & Technologies
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm"
+            >C# (.NET)</span
+          >
+          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm"
+            >JavaScript (React)</span
+          >
+          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Python</span>
+          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">MCP</span>
+          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">SQL</span>
+          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm"
+            >Tailwind CSS</span
+          >
+          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm"
+            >PowerShell</span
+          >
+          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">GitLab</span>
+          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Mendix</span>
+          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">NUnit</span>
+          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">YAML</span>
+          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm"
+            >Azure OpenAI</span
+          >
+          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm"
+            >Azure AI Search</span
+          >
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience" class="mb-10">
+        <h3 class="text-2xl font-semibold border-b-2 border-gray-200 pb-1 mb-4">
+          Experience
+        </h3>
+
+        <!-- Velaro -->
+        <div class="mb-6">
+          <div class="flex justify-between items-center">
+            <h4 class="font-bold text-lg">Software Engineer – Velaro</h4>
+            <span class="text-sm text-gray-500">Sept 2023 – Present</span>
+          </div>
+          <ul class="list-disc pl-6 mt-1 text-gray-700">
+            <li>
+              Created web crawling/scraping Python scripts to train AI chatbots.
+            </li>
+            <li>
+              Integrated Azure AI Search for RAG-based AI chatbot features.
+            </li>
+            <li>
+              Utilized Azure OpenAI, Claude, and Google Gemini for LLM
+              integration.
+            </li>
+            <li>Developed MCP-based copilot server with various AI tools.</li>
+            <li>Built responsive React components with Tailwind CSS.</li>
+          </ul>
+        </div>
+
+        <!-- Erie Insurance -->
+        <div class="mb-6">
+          <div class="flex justify-between items-center">
+            <h4 class="font-bold text-lg">
+              Apprentice Software Engineer – Erie Insurance
+            </h4>
+            <span class="text-sm text-gray-500">Jan 2022 – Sept 2023</span>
+          </div>
+          <ul class="list-disc pl-6 mt-1 text-gray-700">
+            <li>
+              Developed API testing using Python for life insurance services.
+            </li>
+            <li>Created CI/CD testing standards for NuGet packages.</li>
+            <li>Designed modular UX components for company-wide use.</li>
+            <li>Built and maintained .NET and NUnit test suites.</li>
+            <li>
+              Worked with DevOps to automate CI/CD scripts with PowerShell.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Lord Corporation -->
+        <div>
+          <div class="flex justify-between items-center">
+            <h4 class="font-bold text-lg">
+              Career Foundations Engineer – Lord Corporation
+            </h4>
+            <span class="text-sm text-gray-500">June 2018 – Jan 2020</span>
+          </div>
+          <ul class="list-disc pl-6 mt-1 text-gray-700">
+            <li>
+              Wrote Python scripts to benchmark inertial data measurement
+              devices.
+            </li>
+            <li>
+              Measured Gyro Instability, Ambient Vibration, and Pitch/Roll
+              accuracy.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Certifications -->
+      <section class="mb-10">
+        <h3 class="text-2xl font-semibold border-b-2 border-gray-200 pb-1 mb-4">
+          Certifications
+        </h3>
+        <ul class="list-disc pl-6 text-gray-700">
+          <li>PCEP (Certified Entry-Level Python Programmer)</li>
+          <li>Six Sigma Yellow Belt</li>
+        </ul>
+      </section>
+
+      <!-- Education -->
+      <section id="education">
+        <h3 class="text-2xl font-semibold border-b-2 border-gray-200 pb-1 mb-4">
+          Education
+        </h3>
+        <p class="font-bold">B.S. in Mechanical Engineering</p>
+        <p class="text-sm text-gray-600">
+          Penn State Behrend, Erie, PA – Dean’s List – Honors Student – GPA:
+          3.45 – Graduated May 2018
+        </p>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white text-center py-4 mt-10">
+      <p>&copy; 2025 Jonathan Warren. Built with ❤️ and Tailwind CSS.</p>
+    </footer>
+  </body>
+</html>
