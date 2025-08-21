@@ -1,0 +1,14 @@
+{
+  "name": "my-github-pages-site",
+  "version": "1.0.0",
+  "scripts": {
+    "build-css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch=false",
+    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "npm run build-css && cp -r *.html ./dist/ && cp -r assets ./dist/ || true"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10"
+  }
+}

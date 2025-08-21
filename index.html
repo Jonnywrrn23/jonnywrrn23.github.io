@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jonathan Warren - Resume</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind-config.js"></script>
     <style>
       /* Print-friendly version */
       @media print {
@@ -24,21 +25,14 @@
   </head>
   <body class="bg-gray-50 text-gray-900 font-sans">
     <!-- Navbar -->
-    <nav class="bg-gray-900 text-white py-4 shadow-md sticky top-0">
-      <div class="max-w-5xl mx-auto flex justify-between items-center px-4">
-        <h1 class="text-lg font-bold">Jonathan Warren</h1>
-        <div class="space-x-4">
-          <a href="#experience" class="hover:text-yellow-400">Experience</a>
-          <a href="#skills" class="hover:text-yellow-400">Skills</a>
-          <a href="#education" class="hover:text-yellow-400">Education</a>
-          <a
-            href="mailto:Jonnywrrrn23@gmail.com"
-            class="bg-yellow-400 text-black px-3 py-1 rounded hover:bg-yellow-300"
-            >Contact</a
-          >
-        </div>
-      </div>
-    </nav>
+    <div id="navbar"></div>
+    <script>
+      fetch("/components/navbar.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("navbar").innerHTML = html;
+        });
+    </script>
 
     <!-- Main content -->
     <main

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jonathan Warren - Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind-config.js"></script>
+    <style>
+      /* Print-friendly version */
+      @media print {
+        body {
+          background: white;
+        }
+        main {
+          box-shadow: none !important;
+          padding: 0 !important;
+        }
+        header,
+        section {
+          background: white !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-900 font-sans">
+    <!-- Navbar -->
+    <div id="navbar"></div>
+    <script>
+      fetch("/components/navbar.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("navbar").innerHTML = html;
+        });
+    </script>
+
+    <!-- Main content -->
+    <main
+      class="max-w-5xl mx-auto my-10 p-6 sm:p-10 bg-white shadow-lg rounded-lg"
+    ></main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white text-center py-4 mt-10">
+      <p>&copy; 2025 Jonathan Warren. Built with ❤️ and Tailwind CSS.</p>
+    </footer>
+  </body>
+</html>
