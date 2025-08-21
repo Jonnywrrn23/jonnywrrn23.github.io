@@ -2,9 +2,9 @@
   "name": "my-github-pages-site",
   "version": "1.0.0",
   "scripts": {
-    "build-css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch=false",
+    "build-css": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
     "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-    "build": "npm run build-css && cp -r *.html ./dist/ && cp -r assets ./dist/ || true"
+    "build": "npm run build-css"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.0",
