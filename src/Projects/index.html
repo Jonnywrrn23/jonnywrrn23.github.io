@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jonathan Warren - Resume</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="tailwind-config.js"></script>
+    <script src="./tailwind-config.js"></script>
     <style>
       /* Print-friendly version */
       @media print {
@@ -27,7 +27,7 @@
     <!-- Navbar -->
     <div id="navbar"></div>
     <script>
-      fetch("/src/components/navbar.html")
+      fetch("./src/components/navbar.html")
         .then((res) => res.text())
         .then((html) => {
           document.getElementById("navbar").innerHTML = html;
