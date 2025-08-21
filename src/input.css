@@ -3,6 +3,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Print styles */
+@media print {
+  body {
+    background: white;
+  }
+  main {
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+  header,
+  section {
+    background: white !important;
+  }
+}
+
 /* Your custom components */
 @layer components {
   .card-wrapper {
