@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jonathan Warren - Resume</title>
-    <link href="../../dist/output.css" rel="stylesheet" />
+    <link href="/main.css" rel="stylesheet" />
   </head>
   <body class="bg-gray-50 text-gray-900 font-sans">
     <!-- Navbar -->
     <div id="navbar"></div>
     <script>
-      fetch("/src/components/navbar.html")
+      fetch("/src/navbar.html")
         .then((res) => res.text())
         .then((html) => {
           document.getElementById("navbar").innerHTML = html;
