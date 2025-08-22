@@ -30,9 +30,9 @@ jobs:
         run: |
           npm run build-css
           mkdir -p ./dist
-          cp *.html ./dist/ 2>/dev/null || :
-          cp -r src ./dist/ 2>/dev/null || :
-          cp -r assets ./dist/ 2>/dev/null || :
+          cp index.html ./dist/
+          cp -r src ./dist/
+          find . -name "output.css" -not -path "./dist/*" -exec cp {} ./dist/ \;
 
       - name: Upload artifact 📋
         uses: actions/upload-pages-artifact@v3
