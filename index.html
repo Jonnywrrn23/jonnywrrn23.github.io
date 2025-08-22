@@ -10,7 +10,7 @@
     <!-- Navbar -->
     <div id="navbar"></div>
     <script>
-      fetch("/src/components/navbar.html")
+      fetch("/src/navbar.html")
         .then((res) => res.text())
         .then((html) => {
           document.getElementById("navbar").innerHTML = html;
