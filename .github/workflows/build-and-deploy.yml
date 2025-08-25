@@ -32,8 +32,7 @@ jobs:
           mkdir -p ./dist
           cp index.html ./dist/
           cp main.css ./dist/
-          mkdir -p ./dist/src
-          find src -type f -exec cp --parents {} ./dist/ \;
+          cp -r src ./dist/
 
       - name: Upload artifact 📋
         uses: actions/upload-pages-artifact@v3

@@ -7,7 +7,6 @@
     <link href="/main.css" rel="stylesheet" />
   </head>
   <body class="bg-gray-50 text-gray-900 font-sans">
-    <!-- Navbar -->
     <div id="navbar"></div>
     <script>
       fetch("/src/navbar.html")
@@ -17,10 +16,39 @@
         });
     </script>
 
-    <!-- Main content -->
     <main
       class="max-w-5xl mx-auto my-10 p-6 sm:p-10 bg-white shadow-lg rounded-lg"
-    ></main>
+    >
+      <h2 class="text-2xl font-semibold mb-4">Demos</h2>
+      <div class="flex flex-col w-full gap-6">
+        <div class="flex flex-col items-center gap-2 border-b pb-4">
+          <div class="text-lg font-medium">AI</div>
+          <div
+            class="border-2 border-gray-300 hover:bg-gray-200 flex items-center justify-center rounded-md card-wrapper"
+          >
+            <button
+              class="w-12 h-12 flex items-center justify-center card-content"
+            >
+              <img
+                src="/src/atom.svg"
+                alt="AI Demo"
+                style="width: 32px; height: 32px; object-fit: contain"
+              />
+            </button>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center gap-2 border-b pb-4">
+          <div class="flex flex-col items-center gap-2">
+            <div class="text-lg font-medium">ML</div>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center gap-2">
+          <div class="text-lg font-medium">ML</div>
+        </div>
+      </div>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white text-center py-4 mt-10">
