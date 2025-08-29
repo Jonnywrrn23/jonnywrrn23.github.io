@@ -5,21 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jonathan Warren - Resume</title>
     <link href="/main.css" rel="stylesheet" />
+    <script>
+      // Apply saved theme early
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
   </head>
-  <body class="bg-gray-50 text-gray-900 font-sans">
+  <body
+    class="transition-colors duration-300 bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100"
+  >
     <!-- Navbar -->
     <div id="navbar"></div>
     <script>
+      // Apply saved theme *before* DOM render
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+
+      // Load navbar and wire up toggle after it’s in the DOM
       fetch("/src/navbar.html")
         .then((res) => res.text())
         .then((html) => {
           document.getElementById("navbar").innerHTML = html;
+
+          const toggle = document.getElementById("theme-toggle");
+
+          // Ensure toggle reflects current theme
+          toggle.checked = document.documentElement.classList.contains("dark");
+
+          toggle.addEventListener("change", function () {
+            if (this.checked) {
+              document.documentElement.classList.add("dark");
+              localStorage.setItem("theme", "dark");
+            } else {
+              document.documentElement.classList.remove("dark");
+              localStorage.setItem("theme", "light");
+            }
+          });
         });
     </script>
 
     <!-- Main content -->
     <main
-      class="max-w-5xl mx-auto my-10 p-6 sm:p-10 bg-white shadow-lg rounded-lg"
+      class="max-w-5xl mx-auto my-10 p-6 sm:p-10 bg-white shadow-lg rounded-lg dark:bg-gray-800 dark:text-gray-100"
     >
       <!-- Header -->
       <header class="text-center mb-10">
@@ -29,11 +70,11 @@
           class="w-32 h-32 mx-auto rounded-full shadow-md mb-4"
         />
         <h2 class="text-3xl font-bold">Jonathan Warren</h2>
-        <p class="text-gray-600">Software Engineer</p>
-        <p class="text-sm text-gray-500 mt-1">
+        <p class="text-gray-600 dark:text-gray-300">Software Engineer</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
           <a
             href="mailto:jonnywarrendev@gmail.com"
-            class="text-blue-600 hover:underline"
+            class="text-blue-600 dark:text-blue-400 hover:underline"
             >jonnywarrendev@gmail.com</a
           >
         </p>
@@ -41,33 +82,62 @@
 
       <!-- Languages / Technologies -->
       <section id="skills" class="mb-10">
-        <h3 class="text-2xl font-semibold border-b-2 border-gray-200 pb-1 mb-4">
+        <h3
+          class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-1 mb-4"
+        >
           Languages & Technologies
         </h3>
         <div class="flex flex-wrap gap-2">
-          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm"
+          <span
+            class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm"
             >C# (.NET)</span
           >
-          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm"
+          <span
+            class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm"
             >JavaScript (React)</span
           >
-          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Python</span>
-          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">MCP</span>
-          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">SQL</span>
-          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm"
+          <span
+            class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm"
+            >Python</span
+          >
+          <span
+            class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm"
+            >MCP</span
+          >
+          <span
+            class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm"
+            >SQL</span
+          >
+          <span
+            class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm"
             >Tailwind CSS</span
           >
-          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm"
+          <span
+            class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm"
             >PowerShell</span
           >
-          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">GitLab</span>
-          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">Mendix</span>
-          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">NUnit</span>
-          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm">YAML</span>
-          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm"
+          <span
+            class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm"
+            >GitLab</span
+          >
+          <span
+            class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm"
+            >Mendix</span
+          >
+          <span
+            class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm"
+            >NUnit</span
+          >
+          <span
+            class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm"
+            >YAML</span
+          >
+          <span
+            class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm"
             >Azure OpenAI</span
           >
-          <span class="bg-gray-200 px-3 py-1 rounded-full text-sm"
+          <span
+            class="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm"
             >Azure AI Search</span
           >
         </div>
@@ -75,7 +145,9 @@
 
       <!-- Experience -->
       <section id="experience" class="mb-10">
-        <h3 class="text-2xl font-semibold border-b-2 border-gray-200 pb-1 mb-4">
+        <h3
+          class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-1 mb-4"
+        >
           Experience
         </h3>
 
@@ -83,31 +155,33 @@
         <div class="mb-6">
           <div class="flex justify-between items-center">
             <h4 class="font-bold text-lg">Software Engineer – Velaro</h4>
-            <span class="text-sm text-gray-500">Sept 2023 – Aug 2025</span>
+            <span class="text-sm text-gray-500 dark:text-gray-400"
+              >Sept 2023 – Aug 2025</span
+            >
           </div>
-          <ul class="list-disc pl-6 mt-1 text-gray-700">
+          <ul class="list-disc pl-6 mt-1 text-gray-700 dark:text-gray-300">
             <li>
               Created web crawling/scraping Python scripts to train AI chatbots.
             </li>
             <li>
               Integrated use of Azure AI Search for web and file uploaded data
-              for RAG implementation of data for AI chatbots.
+              for RAG implementation.
             </li>
             <li>
               Utilized Azure OpenAI, Anthropic’s Claude, and Google Gemini to
-              integrate LLM functionality into our AI chatbots.
+              integrate LLM functionality.
             </li>
             <li>
-              Lead development of MCP based server for copilot functionality
-              that leveraged various tools and resources for the LLM to use.
+              Lead development of MCP-based server for copilot functionality
+              with multi-tool integration.
             </li>
             <li>
               Developed responsive React components with Tailwind to achieve
               modern UX design.
             </li>
             <li>
-              Utilized various advanced ReactJS features such as providers and
-              hooks to facilitate more robust and flexible code.
+              Utilized advanced ReactJS features such as providers and hooks for
+              robust code.
             </li>
           </ul>
         </div>
@@ -118,41 +192,37 @@
             <h4 class="font-bold text-lg">
               Apprentice Software Engineer – Erie Insurance
             </h4>
-            <span class="text-sm text-gray-500">Jan 2022 – Sept 2023</span>
+            <span class="text-sm text-gray-500 dark:text-gray-400"
+              >Jan 2022 – Sept 2023</span
+            >
           </div>
-          <ul class="list-disc pl-6 mt-1 text-gray-700">
+          <ul class="list-disc pl-6 mt-1 text-gray-700 dark:text-gray-300">
             <li>
               Developed API testing using Python for life insurance app service
               calls.
             </li>
             <li>
               Established automated unit testing for CI/CD Pipeline for internal
-              NuGet Packages, and collaborated in finalizing standards for
-              converting future applications to this pipeline.
+              NuGet Packages.
             </li>
             <li>
-              Created a C# console application to help the Digital Experience
-              team better manage our application environment settings database,
-              ensuring consistency across the development team.
+              Created a C# console application for managing environment settings
+              database.
             </li>
             <li>
-              Designed a new UX component for use across ERIE Insurance’s
-              portfolios, utilizing a modular custom web-element design and
-              Javascript.
+              Designed modular UX component for ERIE Insurance portfolios using
+              JavaScript.
             </li>
             <li>
-              Built suites of unit tests for various features including
-              integration tests for NuGet packages as well as .NET applications
-              using NUnit.
+              Built suites of unit tests with NUnit for .NET apps and NuGet
+              packages.
             </li>
             <li>
-              Worked with a DevOps engineer to troubleshoot issues with
-              Powershell scripts related to automating our CI/CD pipeline.
+              Troubleshot CI/CD automation issues with PowerShell scripts.
             </li>
             <li>
-              Upgraded primary life insurance application from Mendix version
-              8.18.8 to version 9.6.10, and created a guide on upgrading Mendix
-              versions for groups within ERIE to use.
+              Upgraded life insurance app from Mendix 8.18.8 → 9.6.10, and wrote
+              upgrade guide.
             </li>
           </ul>
         </div>
@@ -163,13 +233,14 @@
             <h4 class="font-bold text-lg">
               Career Foundations Engineer – Lord Corporation
             </h4>
-            <span class="text-sm text-gray-500">June 2018 – Jan 2020</span>
+            <span class="text-sm text-gray-500 dark:text-gray-400"
+              >June 2018 – Jan 2020</span
+            >
           </div>
-          <ul class="list-disc pl-6 mt-1 text-gray-700">
+          <ul class="list-disc pl-6 mt-1 text-gray-700 dark:text-gray-300">
             <li>
-              Wrote Python script to benchmark inertial data measurement devices
-              from competitors including Gyro Instability, Ambient Vibration,
-              and Pitch and Roll Accuracy
+              Wrote Python script to benchmark IMU competitors on Gyro
+              Instability & Vibration Accuracy.
             </li>
             <li>
               Completed final design of Furuta Pendulum utilizing LQR for IMU
@@ -181,49 +252,63 @@
 
       <!-- Certifications -->
       <section class="mb-10">
-        <h3 class="text-2xl font-semibold border-b-2 border-gray-200 pb-1 mb-4">
+        <h3
+          class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-1 mb-4"
+        >
           Certifications
         </h3>
         <div class="flex flex-col">
           <div class="flex flex-row items-center mb-4">
-            <image class="w-16 h-16 mr-4rounded-full" src="https://images.credly.com/size/680x680/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png"></image>
+            <img
+              class="w-16 h-16 rounded-full"
+              src="https://images.credly.com/size/680x680/images/be8fcaeb-c769-4858-b567-ffaaa73ce8cf/image.png"
+            />
             <a
               href="https://learn.microsoft.com/en-us/certifications/azure-fundamentals/"
               target="_blank"
               rel="noopener noreferrer"
-              class="ml-4"
+              class="ml-4 text-blue-600 dark:text-blue-400"
               >Microsoft Certified: Azure Fundamentals</a
             >
           </div>
           <div class="flex flex-row items-center mb-4">
-            <image class="w-16 h-16 rounded-full" src="https://pythoninstitute.org/assets/61f11fac8e6f4153315957.png"></image>
+            <img
+              class="w-16 h-16 rounded-full"
+              src="https://pythoninstitute.org/assets/61f11fac8e6f4153315957.png"
+            />
             <a
               href="https://www.python.org/certification/"
               target="_blank"
               rel="noopener noreferrer"
-              class="ml-4"
+              class="ml-4 text-blue-600 dark:text-blue-400"
               >PCEP (Certified Entry-Level Python Programmer)</a
             >
           </div>
           <div class="flex flex-row items-center mb-4">
-            <image class="w-16 h-16 rounded-full" src="https://sixsigmadsi.com/wp-content/uploads/2024/06/LSSYB-O.png"></image>
+            <img
+              class="w-16 h-16 rounded-full"
+              src="https://sixsigmadsi.com/wp-content/uploads/2024/06/LSSYB-O.png"
+            />
             <a
               href="https://www.sixsigmaonline.org/six-sigma-certification/yellow-belt-certification/"
               target="_blank"
               rel="noopener noreferrer"
-              class="ml-4"
+              class="ml-4 text-blue-600 dark:text-blue-400"
               >Six Sigma Yellow Belt</a
             >
           </div>
+        </div>
       </section>
 
       <!-- Education -->
       <section id="education">
-        <h3 class="text-2xl font-semibold border-b-2 border-gray-200 pb-1 mb-4">
+        <h3
+          class="text-2xl font-semibold border-b-2 border-gray-200 dark:border-gray-700 pb-1 mb-4"
+        >
           Education
         </h3>
         <p class="font-bold">B.S. in Mechanical Engineering</p>
-        <p class="text-sm text-gray-600">
+        <p class="text-sm text-gray-600 dark:text-gray-300">
           Penn State Behrend, Erie, PA – Dean’s List – Honors Student – GPA:
           3.45 – Graduated May 2018
         </p>
@@ -231,7 +316,9 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white text-center py-4 mt-10">
+    <footer
+      class="bg-gray-900 text-white text-center py-4 mt-10 dark:bg-gray-950"
+    >
       <p>&copy; 2025 Jonathan Warren. Built with ❤️ and Tailwind CSS.</p>
     </footer>
   </body>

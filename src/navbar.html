@@ -1,14 +1,82 @@
-<nav class="bg-gray-900 text-white py-4 shadow-md sticky top-0">
-  <div class="max-w-5xl mx-auto flex justify-between items-center px-4">
-    <a href="/">Jonathan Warren</a>
-    <div class="space-x-4">
-      <!-- <a href="/src/Demos" class="hover:text-yellow-400">Demos</a>
-      <a href="/src/Projects" class="hover:text-yellow-400">Projects</a> -->
-      <a
-        href="mailto:jonnywarrendev@gmail.com"
-        class="bg-yellow-400 text-black px-3 py-1 rounded hover:bg-yellow-300"
-        >Contact</a
-      >
-    </div>
-  </div>
-</nav>
+<html class="light">
+  <head>
+    <script>
+      // Dark mode toggle logic
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.getElementById("theme-toggle");
+        const html = document.documentElement;
+
+        // Keep state across reloads
+        if (localStorage.theme === "dark") {
+          html.classList.add("dark");
+          toggle.checked = true;
+        }
+
+        toggle.addEventListener("change", () => {
+          if (toggle.checked) {
+            html.classList.add("dark");
+            localStorage.theme = "dark";
+          } else {
+            html.classList.remove("dark");
+            localStorage.theme = "light";
+          }
+        });
+      });
+    </script>
+
+    <style>
+      :root {
+        --bg: 255, 255, 255; /* white */
+        --text: 17, 24, 39; /* gray-900 */
+        --nav: 243, 244, 246; /* gray-100 */
+        --nav-text: 17, 24, 39; /* gray-900 */
+      }
+
+      .dark {
+        --bg: 17, 24, 39; /* gray-900 */
+        --text: 243, 244, 246; /* gray-100 */
+        --nav: 31, 41, 55; /* gray-800 */
+        --nav-text: 243, 244, 246; /* gray-100 */
+      }
+
+      body {
+        background-color: rgb(var(--bg));
+        color: rgb(var(--text));
+      }
+
+      nav {
+        background-color: rgb(var(--nav));
+        color: rgb(var(--nav-text));
+      }
+
+      /* Smooth transition */
+      html,
+      body,
+      nav {
+        transition: background-color 0.4s ease, color 0.4s ease;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="py-4 shadow-md sticky top-0 transition-colors duration-300">
+      <div class="max-w-5xl mx-auto flex justify-between items-center px-4">
+        <a href="/" class="font-bold">Jonathan Warren</a>
+        <div class="space-x-4">
+          <a
+            href="mailto:jonnywarrendev@gmail.com"
+            class="bg-yellow-400 text-black px-3 py-1 rounded hover:bg-yellow-300 transition-colors duration-300"
+            >Contact</a
+          >
+        </div>
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" id="theme-toggle" class="sr-only peer" />
+          <div
+            class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-500 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all"
+          ></div>
+          <span class="ml-3 text-sm font-medium">Dark Mode</span>
+        </label>
+      </div>
+    </nav>
+  </body>
+</html>
