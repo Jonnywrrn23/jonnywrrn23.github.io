@@ -2,9 +2,9 @@
   "name": "my-github-pages-site",
   "version": "1.0.0",
   "scripts": {
-    "build-css": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --content './index.html' './src/**/*.html' './components/**/*.html' --minify",
+    "build-css": "npx tailwindcss -i ./src/input.css -o ./src/output.css --content './index.html' './src/**/*.html' './components/**/*.html' --minify",
     "dev": "echo 'Use: npx tailwindcss -i ./src/input.css -o ./output.css --content \"./index.html\" --watch'",
-    "build": "npm run build-css"
+    "build": "npm run build-css && vite build"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.0",
