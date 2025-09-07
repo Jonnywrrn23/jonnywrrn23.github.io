@@ -28,7 +28,12 @@ jobs:
         run: npm ci
 
       - name: Build 🏗️
-        run: npm run build
+        run: |
+          npm run build-css
+          mkdir -p ./dist
+          cp index.html ./dist/
+          cp main.css ./dist/
+          cp -r src ./dist/
 
       - name: Upload artifact 📋
         uses: actions/upload-pages-artifact@v3
